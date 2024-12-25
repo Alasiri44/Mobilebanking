@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:bank/screens/login.dart';
+import 'package:bank/screens/register.dart';
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key, required this.title}); 
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF87CEEB),
+      appBar: AppBar(title:const Text('My home page'), backgroundColor: Colors.blue, centerTitle: true),
+      body: Center(
+      child: Padding(  
+        padding: const EdgeInsets.all(16.0),
+        child: Column(          
+          mainAxisAlignment: MainAxisAlignment.center,   
+          crossAxisAlignment: CrossAxisAlignment.center,       
+          children: [
+            const Text(
+              'Welcome to Nano mobile',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, )
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Good Evening! Sign in or register to continue',
+              style: TextStyle(fontSize: 16)
+            ),
+            const SizedBox(height: 30),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              child: const Text('Sign In',style: TextStyle(fontSize:16, color: Colors.blue,)),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                );
+              },
+              child: const Text('Register', style: TextStyle(fontSize:16, color: Colors.blue,)),
+            ),
+          ],
+        ),
+      ),
+      ),
+    );
+  }
+}
